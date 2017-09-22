@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="javascript/angular.min.js"></script>
+    <script type="text/javascript" src="javascript/app.js"></script>
+    <script type="text/javascript" src="<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+      <div ng-app="ungdungAngularjs" ng-controller="sinhvienController">
+      <p> {{ vohieu }}</p>
+      <button ng-click="vohieu = vohieu + 1">click</button>
+      <table border="0">
+        <tr><td>Nhap ho:</td><td><input type="text" ng-model="sinhvien.ho"></td></tr>
+        <tr><td>Nhap ten: </td><td><input type="text" ng-model="sinhvien.ten"></td></tr>
+        <tr><td>Nhap hoc phi: </td><td><input type="text" ng-model="sinhvien.hocphi"></td></tr>
+        <tr><td>Nhap mon hoc: </td><td><input type="text" ng-model="tenMonHoc"></td></tr>
+      </table>
+      <br/>
+      <table border="0">
+        <tr><td>Ten dang chu hoa: </td><td>{{sinhvien.hoten() | uppercase}}</td></tr>
+        <tr><td>Ten dang chu thuong: </td><td>{{sinhvien.hoten() | lowercase}}</td></tr>
+        <tr><td>Hoc phi: </td><td>{{sinhvien.hocphi | currency}}</td></tr>
+        <tr><td>Mon hoc:</td><td>
+        <ul>
+         <li ng-repeat="monhoc in sinhvien.tenMonHoc | filter: tenMonHoc |orderBy:'diemthi'">
+            {{ console.log(sinhvien.tenMonHoc) }}
+            {{ monhoc.ten + ', diemthi:' + monhoc.diemthi }}
+            }
+         </li>
+        </ul>
+        </td></tr>
+      </table>
+      </div>
+  </body>
+</html>
